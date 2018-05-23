@@ -58,7 +58,7 @@ namespace DM_Forwarder
             if (msg.Author.Id == socketClient.CurrentUser.Id || msg.Author.IsBot)
                 return; // Don't respond to our own messages or other bots to help prevent loops
 
-            if ((msg.Channel as SocketGuildChannel).Guild == null) // Check that this is a DM (no guild associated with it)
+            if ((msg.Channel as SocketGuildChannel) == null) // Check that this is a DM (no guild associated with it)
             {
                 SocketGuildUser socketUser = socketClient.GetGuild(config.MainGuild).GetUser(msg.Author.Id);
                 // Attempt to see if the user object is cached and in the target guild
